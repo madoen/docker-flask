@@ -5,8 +5,11 @@ RUN apt-get install -y python3-pip
 RUN apt-get install -y nginx supervisor
 RUN pip3 install uwsgi Flask
 
-ADD ./app /app
+ADD ./flask /flask
 ADD ./config /config
+
+COPY /flask/requirements.txt /tmp/requirements.txt
+RUN pip3 install -r /tmp/requirements.txt
 
 RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 RUN rm /etc/nginx/sites-enabled/default
