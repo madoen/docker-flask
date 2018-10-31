@@ -1,0 +1,3 @@
+[submodule "flask"]
+	path = flask
+	url = ../../madoen/microblog.git
